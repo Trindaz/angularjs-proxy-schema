@@ -17,7 +17,7 @@ About this example of a possible way to solve this:
   - "Integration" with AngularJS resources is implemented by extending Resource to make model objects
   - The pattern can be easily updated to use Proxy at somepoint soon when ES6 is better supported
   - `Object.observe()` relies on a fairly recent versin of Chrome, so this solution may have limited utility
-  - `console.warn` is used when type rules are violated. This could hook nicely into the build process so that violations during testiing fail.
+  - `console.warn` is used when type rules are violated. This could hook nicely into the build process so that violations during testing fail.
 
 Here is the example schema from this app:
 ```javascript
@@ -27,13 +27,13 @@ var Person = ProxySchema('Person', PersonResource, {
 });
 ```
 
-A person has a `name` and an `age`. Person extends a PersonResource from AngularJS. ProxySchema handles extending PersonResource with the new properties for Person and setting up observers to warn if Person is used in a way that contradicts its schema.
+A person has a `name` and an `age`. Person extends an AngularJS resource named `PersonResource`. `ProxySchema` handles extending `PersonResource` with the new properties for `Person` and setting up observers to warn if `Person` is used in a way that contradicts its schema.
 
 Instructions
 ---
   1. `git clone git@github.com:Trindaz/angularjs-proxy-schema.git`
   2. Serve files through your favorite static webserver and browse to `/index.html` in Chrome 36+
-  3. Use Console in Chrome Developer to run the following examples:
+  3. Use Console in Chrome Developer Tools to run the following examples:
 
 ####Example 1: View the model for these examples (Person)
 ```javascript
@@ -61,10 +61,15 @@ Note that a warning is displayed
 ####Example 4: Type check initialization properties
 _This example requires editing source code for the app._
 Type safety is checked on initial properties passed to Resource. To see this in action, update this line in `proxy-schema.js` and reload the app:
+
 > `scope.person = new PersonResource({name: 'Johnny', age: 99});`
+
 to
+
 > `scope.person = new PersonResource({name: 'Johnny', age: {years: 99, pensionAge: true}});`
+
 and then node the warning displayed when loading the app:
+
 > "age" of type Object instead of type Number added to Person instance.
 
 Future
