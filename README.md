@@ -12,12 +12,12 @@ How
 ---
 
 About this example of a possible way to solve this:
-  - Doesn't actually use Proxies from ES6 and instead uses `Object.observe` (available in Chrome 36)[http://www.html5rocks.com/en/tutorials/es7/observe/].
+  - Doesn't actually use Proxies from ES6 and instead uses `Object.observe` [available in Chrome 36](http://www.html5rocks.com/en/tutorials/es7/observe/).
   - Schema definitions are just objects with type constructors as values
   - "Integration" with AngularJS resources is implemented by extending Resource to make model objects
   - The pattern can be easily updated to use Proxy at somepoint soon when ES6 is better supported
   - `Object.observe()` relies on a fairly recent versin of Chrome, so this solution may have limited utility
-  - `console.warn` is used when type rules are violaed. This could hook nicely into the build process so that violations during testiing fail.
+  - `console.warn` is used when type rules are violated. This could hook nicely into the build process so that violations during testiing fail.
 
 Instructions
 ---
@@ -32,6 +32,13 @@ console.log(s.person);
 ```
 Note that `s.person` is a model with `name` and `age` properties in addition to other properties inherited from AngularJS' Resource (`$get`, `$save`, etc.)
 
+####Example 2: Violate type safety for `name` on `Person`
+```
+var s = angular.element($('h3')[0]).scope();
+s.person.name = {first: 'Johnny', last: 'Cash'};
+```
+Note that a warning is displayed
+> "name" in Person instance updated to Object instead of String
 
 Future
 ---
