@@ -61,13 +61,13 @@ Note that a warning is displayed
 ####Example 4: Type check initialization properties
 _This example requires editing source code for the app._
 Type safety is checked on initial properties passed to Resource. To see this in action, update this line in `proxy-schema.js` and reload the app:
-
-> `scope.person = new PersonResource({name: 'Johnny', age: 99});`
-
+```javascript
+scope.person = new PersonResource({name: 'Johnny', age: 99});
+```
 to
-
-> `scope.person = new PersonResource({name: 'Johnny', age: {years: 99, pensionAge: true}});`
-
+```
+scope.person = new PersonResource({name: 'Johnny', age: {years: 99, pensionAge: true}});
+```
 and then node the warning displayed when loading the app:
 
 > "age" of type Object instead of type Number added to Person instance.
