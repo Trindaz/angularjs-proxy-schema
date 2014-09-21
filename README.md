@@ -68,7 +68,7 @@ to
 ```
 scope.person = new PersonResource({name: 'Johnny', age: {years: 99, pensionAge: true}});
 ```
-and then node the warning displayed when loading the app:
+and then note the warning displayed when loading the app:
 
 > "age" of type Object instead of type Number added to Person instance.
 
