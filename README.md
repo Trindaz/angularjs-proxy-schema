@@ -16,7 +16,7 @@ About this example of a possible way to solve this:
   - Schema definitions are just objects with type constructors as values
   - "Integration" with AngularJS resources is implemented by extending Resource to make model objects
   - The pattern can be easily updated to use Proxy at somepoint soon when ES6 is better supported
-  - `Object.observe()` relies on a fairly recent versin of Chrome, so this solution may have limited utility
+  - `Object.observe()` relies on a fairly recent version of Chrome, so this solution may have limited utility
   - `console.warn` is used when type rules are violated. This could hook nicely into the build process so that violations during testing fail.
 
 Here is the example schema from this app:
