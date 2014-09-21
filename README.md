@@ -20,12 +20,11 @@ About this example of a possible way to solve this:
   - `console.warn` is used when type rules are violated. This could hook nicely into the build process so that violations during testiing fail.
 
 Here is the example schema from this app:
-```
+```javascript
 var Person = ProxySchema('Person', PersonResource, {
   name: String,
   age: Number
 });
-
 ```
 
 A person has a `name` and an `age`. Person extends a PersonResource from AngularJS. ProxySchema handles extending PersonResource with the new properties for Person and setting up observers to warn if Person is used in a way that contradicts its schema.
@@ -37,14 +36,14 @@ Instructions
   3. Use Console in Chrome Developer to run the following examples:
 
 ####Example 1: View the model for these examples (Person)
-```
+```javascript
 var s = angular.element($('h3')[0]).scope();
 console.log(s.person);
 ```
 Note that `s.person` is a model with `name` and `age` properties in addition to other properties inherited from AngularJS' Resource (`$get`, `$save`, etc.)
 
 ####Example 2: Violate type safety for `name` on `Person`
-```
+```javascript
 var s = angular.element($('h3')[0]).scope();
 s.person.name = {first: 'Johnny', last: 'Cash'};
 ```
@@ -52,7 +51,7 @@ Note that a warning is displayed
 > "name" in Person instance updated to Object instead of String
 
 ####Example 3: Attempt adding new members to `Person`
-```
+```javascript
 var s = angular.element($('h3')[0]).scope();
 s.person.address = {street: '386 Park Avenue South', city: 'New York', state: 'NY', zip: '10016'};
 ```
