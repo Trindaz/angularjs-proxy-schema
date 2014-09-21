@@ -56,8 +56,6 @@ var ProxySchema = function (modelName, Extends, schema) {
 
 };
 
-originalPerson = {name: 'Johnny', age: 99};
-
 angular.module('ProxySchemaApp', ['ngResource'])
   .directive('psEditExampleEntity', function (PersonResource) {
     'use strict';
