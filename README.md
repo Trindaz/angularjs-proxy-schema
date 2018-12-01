@@ -35,14 +35,14 @@ Instructions
   2. Serve files through your favorite static webserver and browse to `/index.html` in Chrome 36+
   3. Use Console in Chrome Developer Tools to run the following examples:
 
-####Example 1: View the model for these examples (Person)
+#### Example 1: View the model for these examples (Person)
 ```javascript
 var s = angular.element($('h3')[0]).scope();
 console.log(s.person);
 ```
 Note that `s.person` is a model with `name` and `age` properties in addition to other properties inherited from AngularJS' Resource (`$get`, `$save`, etc.)
 
-####Example 2: Violate type safety for `name` on `Person`
+#### Example 2: Violate type safety for `name` on `Person`
 ```javascript
 var s = angular.element($('h3')[0]).scope();
 s.person.name = {first: 'Johnny', last: 'Cash'};
@@ -50,7 +50,7 @@ s.person.name = {first: 'Johnny', last: 'Cash'};
 Note that a warning is displayed
 > "name" in Person instance updated to Object instead of String
 
-####Example 3: Attempt adding new members to `Person`
+#### Example 3: Attempt adding new members to `Person`
 ```javascript
 var s = angular.element($('h3')[0]).scope();
 s.person.address = {street: '386 Park Avenue South', city: 'New York', state: 'NY', zip: '10016'};
@@ -58,7 +58,7 @@ s.person.address = {street: '386 Park Avenue South', city: 'New York', state: 'N
 Note that a warning is displayed
 > Unknown member "address" added to Person instance.
 
-####Example 4: Type check initialization properties
+#### Example 4: Type check initialization properties
 _This example requires editing source code for the app._
 Type safety is checked on initial properties passed to Resource. To see this in action, update this line in `proxy-schema.js` and reload the app:
 ```javascript
